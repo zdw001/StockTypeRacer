@@ -8,8 +8,14 @@ After cloning the repository:
 
 virtualenv .
 
+## On Mac
 source bin/activate
+cd StockTypeRacer
+pip install -r requirements.txt
 
+## On Windows
+scripts\activate
+cd StockTypeRacer
 pip install -r requirements.txt
 
 cd src 
