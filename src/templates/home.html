@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+	Home - {{ block.super }}
+{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="header">
+			<h1><img class="flags" src="{% static 'images/flags.png' %}" alt="">  Stock Symbol Type Racer  <img class="flags" src="{% static 'images/flags.png' %}" alt=""></h1>
+		</div>
+		<div class="nav">
+<!-- 			<a href="">Log In</a>
+			<a href="">Log Out</a> -->
+		</div>
+		<div class="introduction">
+			<div class="right">
+				<p>
+					This typing race was developed to aid day traders in becoming quick and efficient at typing up stock symbols that pass through their filters. Symbols are not case sensitive. Hit enter when the symbol is typed. There is no penalty for mistyped words, however they will not count towards your WPM. Your score is calculated as follows:
+				</p>
+				<ul>
+					<li>+1 point for a correct word</li>
+					<li>+1 point for each correct word in a row</li>
+					<li>Streak is reset to 0 for each incorrect word</li>
+					<li>At the end of the race, your score is multiplied by your WPM</li>
+				</ul>
+				<p style="margin-bottom: 30px;">Happy Racing!</p>
+				<div class="stats">
+					<div class="my_stats">
+						<div class="center">
+							<div class="wpm">
+								<h3>WPM:</h3>
+								<h1 id="wpm">0</h1>
+							</div>
+							<div class="score">
+								<h3>Score:</h3>
+								<h1 id="score">0</h1>
+							</div>
+						</div>
+						<p>Streak: <span id="streak">0</span></p>
+						<p>Words Correct: <span id="correct">0</span></p>
+						<p>Words Incorrect: <span id="incorrect">0</span></p>
+					</div>
+					<div class="high_scores">
+						<h3>Leader Board Coming Soon</h3>
+					</div>
+				</div>
+			</div>
+			<div class="results">
+				<h4>Live Results:</h4>
+				<div id="results">
+					{% for symbol in symbol_sample %}
+						<span class="{{ forloop.counter }}" id="result{{ forloop.counter }}">{{ symbol }}</span>
+					{% endfor %}
+				</div>
+				<div id="textscreen">
+					{% for symbol in symbol_sample %}
+						<span class="remove" class="{{ forloop.counter }}"  id="{{ forloop.counter }}">{{ symbol }}</span>
+					{% endfor %}
+					<span id="51">Race Finished!</span>
+				</div>
+				<div class="input">
+					<input type="text" id="textbox" placeholder="Let's Race!" name="typeinput">
+				</div>
+				<div class="stopwatch">
+					<h1 id="timer">00 : 00 . 00</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

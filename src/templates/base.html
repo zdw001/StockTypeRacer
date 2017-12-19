@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'images/icons/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body onload="setUp()">
+	<div id="content">
+		{% block content %}
+		{% endblock content %}
+	</div>
+
+	<footer class="footer">
+		<div class="about">
+			<p>This website was created by Zach Winters. <!-- To learn more please visit <a href="http://www.zwinters.com">www.zwinters.com</a>. --></p>
+			<div class="social">
+				<a href="https://www.linkedin.com/in/winterszachary/" target="_blank" class="fa fa-linkedin fa-2x" id="linkedin"></a>
+				<a href="https://github.com/zdw001" target="_blank" class="fa fa-github fa-2x" id="github"></a>
+				<a href="mailto:zwintersdeveloper@gmail.com" class="fa fa-envelope fa-2x" id="envelope"></a>
+				<a href="https://www.facebook.com/zach.winters.12" target="_blank" class="fa fa-facebook fa-2x" id="facebook"></a>
+			</div>
+		</div>
+		<div id="contact" class="content">
+			<h1>Have feedback?</h1>
+			<p>Just fill out the form below.</p>
+			<form role="form" action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<div class="submit-button">
+					<button onmousedown="mouseDown3()" onmouseup="mouseUp3()" type="submit" class="btn" id="button3" style="transition: none;">Submit</button>
+				</div>
+			</form>
+		</div>
+	</footer>
+	
+	<script type="text/javascript" src="{% static 'js/stopwatch.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/button.js' %}"></script>
+</body>
